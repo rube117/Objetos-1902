@@ -5,7 +5,6 @@
  */
 package validar18;
 
-import funciones.Funciones;
 
 /**
  *
@@ -90,16 +89,15 @@ public class ProbarUsuario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botón Edad
         Usuario u=new Usuario();
-        Funciones f=new Funciones();
         try
         {
             int x=Integer.parseInt(jTextField1.getText());
             ValidarEdad.ValidarMayorDeEdad(x);
             u.setEdad(x);
            jLabel1.setText("Edad: "+u.getEdad());
-        }catch (Exception e)
+        }catch (ValidarMayor18Exception e)
         {
-            jLabel1.setText(""+e);
+            jLabel1.setText("Error: "+e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
