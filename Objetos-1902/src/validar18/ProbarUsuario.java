@@ -5,6 +5,11 @@
  */
 package validar18;
 
+import excepciones.ValidarValores;
+import excepciones.ValorNegativoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -91,11 +96,12 @@ public class ProbarUsuario extends javax.swing.JFrame {
         Usuario u=new Usuario();
         try
         {
-            int x=Integer.parseInt(jTextField1.getText());
+            byte x=Byte.parseByte(jTextField1.getText());
+            ValidarValores.ValidarNoNegativo(x);
             ValidarEdad.ValidarMayorDeEdad(x);
             u.setEdad(x);
            jLabel1.setText("Edad: "+u.getEdad());
-        }catch (ValidarMayor18Exception e)
+        }catch (NumberFormatException | ValidarMayor18Exception | ValorNegativoException e)
         {
             jLabel1.setText("Error: "+e.getMessage());
         }

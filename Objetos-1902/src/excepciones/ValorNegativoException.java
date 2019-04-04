@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package validar18;
+package excepciones;
 
 /**
  *
- * @author Rubén
+ * @author T-101
  */
-public class ValidarEdad {
-    public static void ValidarMayorDeEdad(byte x)throws ValidarMayor18Exception
-    {
-        if(x<18)throw new ValidarMayor18Exception();
+public class ValorNegativoException extends Exception {
+
+    public ValorNegativoException() {
+        super("¡No se permiten valores negativos!");
     }
 }
